@@ -22,8 +22,22 @@ window.onload = function () {
         // Prevent the default form submission
         event.preventDefault();
 
-        // Log the click event to the console
-        console.log('Submit button clicked!');
+        //Get product form the form
+        let p = getProduct();
+
+        //Display product
+        console.log(p);
+
     });
 
+}
+
+function getProduct() {
+    let title: string = (<HTMLInputElement>document.querySelector("#productTitle")).value;
+
+    const productPriceTextBox = (<HTMLInputElement>document.querySelector("#productPrice"));
+    let price: number = parseFloat(productPriceTextBox.value);
+
+    let p = new Product(title, price);
+    return p;
 }
